@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>IonicExampleApp</title>
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet" />
+    <!--ionic framework bütün bağımlılıklarının dahil olduğu bir bundle ile birlikte iner-->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    
+   
+    <script src="scripts/Application.js"></script>
+    <script src="scripts/Fake/FakeRestFull.js"></script>
+
+</head>
+<!--ionic framework angularJs bağımlı olduğu için burada bildiğimiz angualr js attribute ve directivlerini kullanabiliriz-->
+<body ng-app="ionExampleApp">
+
+    <!--ionNavBar directive'i  html5 te bildiğimiz header görevi görür -->
+    <ion-nav-bar class="bar-positive">
+        <h1 class="title">Ba Shop</h1>
+
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">Geri
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--ionNavView direcdivi angular js deki ngView directive gibi çalışır yani routing üzerinde ayarladığımız routing dönüşleri buraya render olacaktır.-->
+            <ion-nav-view animation="slide-left-right"></ion-nav-view>
+     
+  
+
+</body>
+</html>

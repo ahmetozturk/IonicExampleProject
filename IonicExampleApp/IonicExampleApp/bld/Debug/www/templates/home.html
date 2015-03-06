@@ -1,0 +1,26 @@
+﻿  <!--ionContent directive'i içeriğin mobil ekranlarda rahatça kullanmamıza ve ionic'in custom scroollarına rahatça müdahale etmemize yarar http://ionicframework.com/docs/api/directive/ionContent/ -->
+<ion-content ng-controller="listController as list" class="has-header">
+    <!--ionRefresher directive'i native uygulamalarda sık karşılaştığımız sürükle-yenile işini rahatlıkla yapmamıza yarayan bir directivedir. http://ionicframework.com/docs/api/directive/ionRefresher/-->
+    <!--pulling-text Yenileme texti on-refresh yenileme isteğinde çalışacak fonksiyon  -->
+    <ion-refresher  pulling-text="Yenilemek için kaydırın" on-refresh="list.doRefresh()"></ion-refresher>
+    <!--ion-refresher a ait diğer attributeler
+    on-pulling Kaydırma anında çalıştırılacak callBack
+    pulling-icon Kaydırma sırasında gözükecek icon default:ion-arrow-down-c
+    pulling-text Kaydırma sırasında gözükecek yazı
+    refreshing-icon Kullanıcı dokunmayı bıraktından sonra yenileme beklenirken gözükecek ikon
+    refreshing-text Kullanıcı dokunmayı bıraktından sonra yenileme beklenirken gözükecek yazı
+    disable-pulling-rotation custom pulling-icon kullanılırsa animasyonun açıp kapatmak için kullanılan attribute /boolean
+    -->
+    <!--ionic framework routing işlemleri için kendi directiveini kullanır ion-nav-view directive'i AngularJsdeki ng-view directivi ile aynı işi yapar-->
+    <!--ionList directive listeleme işlemleri için kullanılan directive'dir  http://ionicframework.com/docs/api/directive/ionList/-->
+    <ion-list class="has-header">
+        <!--ionItem directive'i listelemelerin içinde kullanılabilinen bir directivedir http://ionicframework.com/docs/api/directive/ionItem/ -->
+      <ion-item></ion-item>
+        <ion-item class="item item-thumbnail-left" ng-repeat="item in list.products" animation="slide-left-right" ng-click="list.showSheet({{item.Id}},{{$index}})">
+            <img ng-src="{{item.Path}}" />
+            <h2>{{item.Name}}</h2>
+            <p>{{item.Description}}</p>
+
+        </ion-item>
+    </ion-list>
+</ion-content>
